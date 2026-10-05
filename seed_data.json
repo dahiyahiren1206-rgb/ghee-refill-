@@ -1,0 +1,625 @@
+{
+  "videos": [
+    {
+      "id": "0a553369-5d63-4340-ac7a-a994b8cd8044",
+      "title": "Gradient descent, how neural networks learn | Deep Learning Chapter 2",
+      "subject": "Machine Learning",
+      "topic": "Machine Learning Basics",
+      "description": "Linear regression, gradient descent, overfitting, train-test split.",
+      "youtube_id": "IHZwWFHWa-w",
+      "channel": "3Blue1Brown",
+      "duration_label": "One shot",
+      "tags": [
+        "ml",
+        "ai",
+        "beginner"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## Linear Regression and Prediction\n- **Linear regression** is a simple machine learning method used to predict a number, like marks, price, or height.\n- It tries to fit a **straight line** through data points.\n- The line is often written as **y = mx + b**, where:\n  - **x** = input feature\n  - **y** = predicted output\n  - **m** = slope or weight\n  - **b** = bias or intercept\n- A neural network with one input and one output can behave like linear regression in a basic case.\n- The goal is to choose values of weight and bias so predictions are as close as possible to real values.\n\n## Loss Function and Error\n- To know how good or bad the model is, we use a **loss function**.\n- Loss measures the difference between **predicted value** and **actual value**.\n- A common loss in regression is **Mean Squared Error (MSE)**.\n- If loss is high, the model is making poor predictions.\n- If loss is low, the model fits the data better.\n- Training means adjusting model parameters to **reduce loss**.\n\n## Gradient Descent: How the Model Learns\n- **Gradient descent** is an optimization method used to reduce the loss.\n- Imagine standing on a hill and trying to walk down to the lowest point. Gradient descent does the same with loss.\n- It changes weights and bias in small steps.\n- The **gradient** tells the direction of the steepest increase, so we move in the opposite direction to decrease loss.\n- Update idea:\n  - new parameter = old parameter - learning rate \u00d7 gradient\n- **Learning rate** controls step size:\n  - too large -> may overshoot or fail to converge\n  - too small -> training becomes very slow\n- Repeating updates many times is called **training over epochs**.\n\n## Overfitting and Generalization\n- **Overfitting** happens when a model learns training data too closely, including noise.\n- Such a model performs very well on training data but poorly on new data.\n- A very complex model is more likely to overfit.\n- Good machine learning is not just memorizing; it is **generalizing** to unseen examples.\n- Signs of overfitting:\n  - very low training error\n  - high testing or validation error\n\n## Train-Test Split\n- To check whether a model generalizes well, data is divided into **training set** and **test set**.\n- **Training set** is used to learn weights and bias.\n- **Test set** is used only to evaluate final performance.\n- This is called **train-test split**.\n- If a model performs well on both sets, it is likely learning useful patterns.\n- The test set should not be used for training, otherwise evaluation becomes unfair.\n\n## Exam Focus\n- Linear regression predicts continuous values.\n- Gradient descent minimizes loss by updating parameters step by step.\n- Learning rate is a key hyperparameter.\n- Overfitting reduces performance on unseen data.\n- Train-test split helps measure real model quality.",
+      "summary": [
+        "Linear regression fits a line to predict continuous values from input data.",
+        "Loss function measures prediction error, and training aims to reduce this loss.",
+        "Gradient descent updates weights and bias in the direction that lowers loss.",
+        "Overfitting means the model memorizes training data but fails on new data.",
+        "Train-test split is used to check whether the model generalizes well."
+      ],
+      "created_at": "2026-10-04T17:30:12.825676+00:00",
+      "questions": [
+        {
+          "id": "acde83d5-b7fc-4bff-8952-73dac9c661dd",
+          "question": "What is the main purpose of gradient descent in machine learning?",
+          "options": [
+            "To reduce the loss by updating parameters",
+            "To increase the number of input features",
+            "To divide data into training and test sets",
+            "To convert regression into classification"
+          ]
+        },
+        {
+          "id": "9ed6eb88-cc7d-4911-919f-528fbad3b268",
+          "question": "In linear regression, what does the model mainly try to learn?",
+          "options": [
+            "The best straight-line relationship between input and output",
+            "The exact labels of all future data points",
+            "Only the largest value in the dataset",
+            "A random split of the dataset"
+          ]
+        },
+        {
+          "id": "b8b85f7f-7d1c-416e-bd70-e2aedcde6992",
+          "question": "What is the effect of choosing a very large learning rate?",
+          "options": [
+            "The model may overshoot the minimum and fail to converge",
+            "The model will always become more accurate",
+            "The training data becomes larger",
+            "Overfitting is completely removed"
+          ]
+        },
+        {
+          "id": "74911f44-4f86-44d8-a030-fddecc91a899",
+          "question": "Which situation best describes overfitting?",
+          "options": [
+            "Low training error but high test error",
+            "High training error and high test error",
+            "Equal training and test error with poor features",
+            "Low test error and moderate training error"
+          ]
+        },
+        {
+          "id": "ff6bd996-3999-4f32-8911-86a6e5ae9944",
+          "question": "Why is a train-test split used?",
+          "options": [
+            "To evaluate how well the model performs on unseen data",
+            "To make gradient descent faster in all cases",
+            "To remove the need for a loss function",
+            "To guarantee zero prediction error"
+          ]
+        }
+      ],
+      "comments_list": [
+        {
+          "id": "5ceafb26-9544-4efd-9d7e-5eb2ee766400",
+          "video_id": "0a553369-5d63-4340-ac7a-a994b8cd8044",
+          "author": "Rahul",
+          "text": "Bhai ye video ekdum sahi hai, deadlock clear ho gaya!",
+          "created_at": "2026-10-04T17:31:31.408453+00:00"
+        }
+      ]
+    },
+    {
+      "id": "0e953ed2-ad83-4ecc-a553-5b30cbb3cce1",
+      "title": "OSI and TCP IP Models - Best Explanation",
+      "subject": "Computer Networks",
+      "topic": "Computer Networks",
+      "description": "OSI and TCP/IP layers, routing, TCP vs UDP, subnetting.",
+      "youtube_id": "3b_TAYtzuho",
+      "channel": "_Drunk Engineer_",
+      "duration_label": "One shot",
+      "tags": [
+        "networks",
+        "gate",
+        "semester",
+        "cs"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## OSI Model\n- The **OSI model** has **7 layers** and is a reference model used to understand how data moves in a network.\n- **Physical Layer**: sends raw bits through cable, fiber, or wireless signals.\n- **Data Link Layer**: provides **framing**, **MAC addressing**, and **error detection** inside a local network.\n- **Network Layer**: handles **logical addressing** and **routing** using **IP addresses**.\n- **Transport Layer**: provides end-to-end delivery using **TCP** or **UDP**.\n- **Session Layer**: starts, manages, and ends communication sessions.\n- **Presentation Layer**: handles **encryption**, **compression**, and data format conversion.\n- **Application Layer**: closest to the user; examples are **HTTP, FTP, SMTP, DNS**.\n\n## TCP/IP Model\n- The **TCP/IP model** is the practical model used on the Internet.\n- It usually has **4 layers**:\n  - **Link/Network Access Layer**: combines OSI Physical + Data Link functions.\n  - **Internet Layer**: same main role as OSI Network layer; uses **IP** and routing.\n  - **Transport Layer**: uses **TCP** and **UDP**.\n  - **Application Layer**: combines OSI Application + Presentation + Session layers.\n- OSI is mainly for **understanding**, while TCP/IP is for **real-world implementation**.\n\n## Routing and IP Addressing\n- **Routing** is the process of finding a path for packets from source to destination across networks.\n- A **router** works mainly at the **Network layer**.\n- Routers use **routing tables** to decide the next hop.\n- **IP address** identifies a device logically on a network.\n- **IPv4** is 32-bit, written like **192.168.1.10**.\n- An IP address has **network part** and **host part**.\n\n## TCP vs UDP\n- **TCP (Transmission Control Protocol)** is **connection-oriented**.\n- It provides **reliable delivery**, **acknowledgment**, **sequencing**, **flow control**, and **error recovery**.\n- Used in **web browsing (HTTP/HTTPS)**, **email**, and **file transfer**.\n- **UDP (User Datagram Protocol)** is **connectionless**.\n- It is **faster** and has **low overhead**, but no guarantee of delivery or order.\n- Used in **video streaming**, **online gaming**, **VoIP**, and **DNS**.\n- Memory trick: **TCP = reliable but slower**, **UDP = fast but less reliable**.\n\n## Subnetting\n- **Subnetting** means dividing one network into smaller networks called **subnets**.\n- It improves **address management**, **security**, and **network performance**.\n- A **subnet mask** tells which bits belong to network and which belong to hosts.\n- Example: **255.255.255.0 = /24** means first 24 bits are network bits.\n- More network bits means **more subnets** but **fewer hosts per subnet**.\n- Formula:\n  - **Number of subnets = 2^n** where n = borrowed bits\n  - **Hosts per subnet = 2^h - 2** where h = host bits\n- Example: In **/26**, host bits = 6, so hosts per subnet = **2^6 - 2 = 62**.\n- Common exam point: **network address** and **broadcast address** cannot be assigned to hosts.",
+      "summary": [
+        "OSI has 7 layers, while TCP/IP has 4 layers used in the Internet.",
+        "Routers work at the Network layer and forward packets using routing tables.",
+        "TCP is reliable and connection-oriented; UDP is faster and connectionless.",
+        "Subnetting divides a network into smaller parts for better management and performance.",
+        "Subnet masks decide the network and host portions of an IP address."
+      ],
+      "created_at": "2026-10-04T17:29:56.132482+00:00",
+      "questions": [
+        {
+          "id": "59aee7f1-cca5-45ef-9b7f-7b9bd0c083a0",
+          "question": "Which OSI layer is responsible for routing packets using IP addresses?",
+          "options": [
+            "Transport layer",
+            "Network layer",
+            "Data Link layer",
+            "Presentation layer"
+          ]
+        },
+        {
+          "id": "57fc0ca6-4bbe-47bd-9644-12f3a8e35066",
+          "question": "Which statement correctly compares TCP and UDP?",
+          "options": [
+            "TCP is connectionless and faster",
+            "UDP provides sequencing and acknowledgments",
+            "TCP provides reliable delivery, while UDP has lower overhead",
+            "UDP is used only for email transfer"
+          ]
+        },
+        {
+          "id": "130104e2-1aba-40c6-a014-272cd2cdfe8f",
+          "question": "In the TCP/IP model, which layer performs the main function of the OSI Network layer?",
+          "options": [
+            "Application layer",
+            "Transport layer",
+            "Internet layer",
+            "Link layer"
+          ]
+        },
+        {
+          "id": "1b48c148-9fa2-46f4-bb90-2f5efe3361b2",
+          "question": "What is the number of usable hosts in a /26 subnet?",
+          "options": [
+            "30",
+            "62",
+            "64",
+            "126"
+          ]
+        },
+        {
+          "id": "efdeda5b-9682-490c-8c99-915174f1729b",
+          "question": "Which of the following best describes subnetting?",
+          "options": [
+            "Combining many protocols into one",
+            "Dividing a large network into smaller sub-networks",
+            "Converting TCP into UDP",
+            "Encrypting data at the Presentation layer"
+          ]
+        }
+      ],
+      "comments_list": []
+    },
+    {
+      "id": "9fe1a44d-ba20-4f1a-9b3f-788ff562b847",
+      "title": "Organic Name Reactions One Shot \ud83d\udd25\ud83d\udd25 Guarantee \u0935\u093e\u0932\u0940 Tricks By Yogesh Jain Sir - OC Legend",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry",
+      "description": "Reaction mechanisms, named reactions, conversions \u2014 JEE/NEET level.",
+      "youtube_id": "ieCu1ZbYCyI",
+      "channel": "PW Test Series",
+      "duration_label": "One shot",
+      "tags": [
+        "chemistry",
+        "jee",
+        "neet",
+        "organic"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## Big Picture: How to Study Name Reactions\n- In **JEE/NEET Organic Chemistry**, named reactions are asked as **direct products, reagents, mechanisms, and conversions**.\n- Best approach: learn each reaction by **substrate + reagent + key intermediate + final product**.\n- Most questions become easy if you track **electrophile, nucleophile, oxidation state, and rearrangement**.\n\n## Must-Know Named Reactions\n- **Aldol Condensation**: aldehydes/ketones with **alpha-H** react in base to give **beta-hydroxy carbonyl**, on heating give **alpha,beta-unsaturated carbonyl**.\n- **Cannizzaro Reaction**: aldehydes **without alpha-H** react with concentrated base to give **one alcohol + one carboxylate** by self oxidation-reduction.\n- **Haloform Reaction**: compounds with **-COCH3** or **CH3CH(OH)-** give **CHI3/CHBr3/CHCl3** with halogen + base. Useful test for **methyl ketone** and **ethanol/secondary alcohol of type CH3CH(OH)-**.\n- **Friedel\u2013Crafts Alkylation/Acylation**: aromatic ring reacts with **R-X** or **RCOCl** in presence of **AlCl3**. Acylation is preferred when polyalkylation/rearrangement is a problem.\n- **Sandmeyer Reaction**: **aryl diazonium salts** give **ArCl, ArBr, ArCN** using **Cu(I) salts**. Very important in aromatic conversions.\n- **Gattermann Reaction**: diazonium salt gives **ArCl/ArBr** using **HCl/HBr + Cu powder**.\n- **Fittig/Wurtz-Fittig**: coupling of **aryl/alkyl halides with Na in dry ether** to form higher hydrocarbons.\n\n## Rearrangement and Reduction Reactions\n- **Clemmensen Reduction**: **Zn(Hg)/HCl** reduces **aldehydes/ketones to alkane** in acidic medium.\n- **Wolff\u2013Kishner Reduction**: **NH2NH2/KOH, heat** also converts carbonyl to methylene, but in **basic medium**.\n- **Rosenmund Reduction**: **acid chloride to aldehyde** using **H2/Pd-BaSO4** (poisoned catalyst).\n- **Stephen Reaction**: **nitrile to aldehyde** using **SnCl2/HCl**, then hydrolysis.\n- **Etard Reaction**: oxidation of side-chain methyl on benzene using **chromyl chloride** to give **aldehyde**.\n- **Baeyer\u2013Villiger Oxidation**: ketone + peracid gives **ester**, cyclic ketone gives **lactone**; group with better migratory aptitude shifts.\n\n## Carboxylic Acid Derivatives and Amines\n- **HVZ Reaction**: carboxylic acid with **alpha-H** gives **alpha-halo acid** using **Br2/Red P**.\n- **Hell-Volhard-Zelinsky** helps in alpha-substitution of acids where direct halogenation is difficult.\n- **Hoffmann Bromamide Degradation**: **amide to amine with one carbon less** using **Br2/KOH**.\n- **Gabriel Phthalimide Synthesis**: preparation of **primary aliphatic amines only**.\n- **Carbylamine Reaction**: **1\u00b0 amine + CHCl3 + alc. KOH** gives foul-smelling **isocyanide**; test for primary amines.\n\n## Fast Conversion Tricks\n- **Benzene \u2192 aniline**: nitration then reduction.\n- **Aniline \u2192 diazonium salt**: **NaNO2/HCl, 0\u20135\u00b0C**.\n- **Diazonium salt \u2192 phenol/halide/cyanide**: choose **H2O, CuCl/CuBr, CuCN** respectively.\n- **Acid chloride \u2192 aldehyde**: use **Rosenmund**, not strong hydride.\n- **Carbonyl \u2192 hydrocarbon**: use **Clemmensen** in acid-sensitive? no; choose based on medium compatibility.\n\n## Exam Traps\n- **Cannizzaro** does not occur if **alpha-H** is present.\n- **Haloform** is specific for **methyl ketone type**.\n- **Gabriel** does not give **aryl amines** effectively.\n- In aromatic substitution, activating/deactivating groups control orientation and rate.",
+      "summary": [
+        "Learn each named reaction by substrate, reagent, intermediate, and product.",
+        "Cannizzaro needs aldehydes without alpha-hydrogen; aldol needs alpha-hydrogen.",
+        "Rosenmund gives aldehyde from acid chloride, while Clemmensen/Wolff\u2013Kishner remove carbonyl completely.",
+        "Diazonium salts are key conversion hubs for aryl halides, phenol, and nitriles.",
+        "Haloform reaction is a strong test for methyl ketone or related alcohol systems."
+      ],
+      "created_at": "2026-10-04T17:29:38.171306+00:00",
+      "questions": [
+        {
+          "id": "021ea86b-0ee7-4911-9b20-8baf2220162a",
+          "question": "Which compound will give Cannizzaro reaction most readily?",
+          "options": [
+            "Benzaldehyde",
+            "Acetaldehyde",
+            "Propanal",
+            "Butan-2-one"
+          ]
+        },
+        {
+          "id": "5e1ea36c-ae18-4843-a4ca-a16434e6e7e9",
+          "question": "The reagent used in Rosenmund reduction is:",
+          "options": [
+            "H2/Pd-BaSO4",
+            "Zn(Hg)/HCl",
+            "NH2NH2/KOH",
+            "LiAlH4"
+          ]
+        },
+        {
+          "id": "b1b25a0e-ea0b-4d32-be97-1d5c473cca54",
+          "question": "Haloform reaction is given by which of the following?",
+          "options": [
+            "Acetone",
+            "Benzaldehyde",
+            "Formaldehyde",
+            "Diethyl ether"
+          ]
+        },
+        {
+          "id": "c751bf45-13d2-49fd-b150-8e59a3841e4d",
+          "question": "Aniline is converted to benzene diazonium chloride by using:",
+          "options": [
+            "NaNO2 and HCl at 0\u20135\u00b0C",
+            "Conc. HNO3/H2SO4",
+            "Br2/FeBr3",
+            "CuCl/HCl"
+          ]
+        },
+        {
+          "id": "461899b9-8346-4fc0-83ab-b1f47798a44f",
+          "question": "Hoffmann bromamide degradation converts an amide into:",
+          "options": [
+            "A primary amine with one less carbon",
+            "A secondary amine with same carbon count",
+            "An aldehyde",
+            "A nitrile"
+          ]
+        }
+      ],
+      "comments_list": []
+    },
+    {
+      "id": "51e205da-710a-4f7d-91bf-e07ee436f4a0",
+      "title": "Solve ANY Backtracking Problem on Leetcode (Template + Explanation)",
+      "subject": "DSA",
+      "topic": "Recursion & Backtracking",
+      "description": "Recursion fundamentals, subsets, permutations, N-queens, sudoku.",
+      "youtube_id": "p9m2LHBW81M",
+      "channel": "Bitflip",
+      "duration_label": "One shot",
+      "tags": [
+        "dsa",
+        "recursion",
+        "interview"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## Recursion Basics\n- **Recursion** means a function calls itself to solve smaller versions of the same problem.\n- Every recursive solution needs two parts:\n  - **Base case**: when to stop.\n  - **Recursive case**: how to reduce the problem.\n- Think of recursion as a **decision tree**. Each function call is a node, and each choice creates a branch.\n- In backtracking problems, recursion is used to **try**, **go deeper**, and then **undo** the choice.\n\n## What is Backtracking?\n- **Backtracking** is a problem-solving technique where we build an answer step by step and remove choices that do not work.\n- General template:\n  - Choose an option\n  - Add it to the current path\n  - Recurse to the next level\n  - **Undo** the choice before trying the next option\n- This undo step is the heart of backtracking.\n- Use backtracking when the question asks for **all combinations**, **all arrangements**, or any valid configuration.\n\n## Standard Backtracking Template\n- Maintain a **path** or current state.\n- If the path is complete, add a copy to the answer.\n- Loop over available choices.\n- Skip invalid choices.\n- Make the choice, recurse, then remove the choice.\n- Time complexity is often **exponential** because many possibilities are explored.\n\n## Subsets\n- In **subsets**, every element has two choices: **take it** or **leave it**.\n- This creates a binary recursion tree.\n- Base case: when the index reaches the end of the array, store the current subset.\n- Subsets usually do not need a visited array because order does not matter.\n- Number of subsets for `n` elements is **2^n**.\n\n## Permutations\n- In **permutations**, order matters.\n- At each level, choose one unused element.\n- Common method:\n  - Use a **visited** array to mark used elements, or\n  - Swap the current element with every possible next element.\n- Base case: when the path size becomes `n`, one permutation is complete.\n- Total permutations of `n` distinct elements = **n!**.\n\n## N-Queens\n- Goal: place `n` queens on an `n x n` board so that no two queens attack each other.\n- A queen attacks along:\n  - same **column**\n  - same **main diagonal**\n  - same **anti-diagonal**\n- Place queens **row by row**.\n- Before placing a queen, check if the column and diagonals are safe.\n- Fast checking can be done using sets or arrays for columns and diagonals.\n\n## Sudoku\n- Fill empty cells so each row, column, and `3 x 3` box contains digits `1-9` exactly once.\n- Strategy:\n  - Find an empty cell\n  - Try digits `1-9`\n  - If valid, place the digit and recurse\n  - If stuck, remove it and try the next digit\n- Validity checking is the key optimization.\n- Sudoku backtracking stops when all cells are filled correctly.\n\n## How to Identify Backtracking Problems\n- Words like **generate all**, **return all**, **arrange**, **place**, **fill**, or **valid configuration** are strong clues.\n- Focus on:\n  - the **state**\n  - the **choices**\n  - the **base case**\n  - the **undo step**\n- Backtracking is brute force with smart pruning.",
+      "summary": [
+        "Recursion needs a base case and a way to reduce the problem size.",
+        "Backtracking follows: choose, recurse, undo.",
+        "Subsets use include/exclude decisions, giving 2^n total subsets.",
+        "Permutations require tracking used elements because order matters.",
+        "N-Queens and Sudoku are classic constraint-based backtracking problems."
+      ],
+      "created_at": "2026-10-04T17:29:12.257303+00:00",
+      "questions": [
+        {
+          "id": "4fe59c6f-4f63-4358-b8be-55edf5fb76fa",
+          "question": "What is the most essential extra step in backtracking compared to normal recursion?",
+          "options": [
+            "Undo the previous choice after returning",
+            "Always sort the input array",
+            "Use dynamic programming table",
+            "Stop after the first recursive call"
+          ]
+        },
+        {
+          "id": "8606fcad-c4cf-46c8-89d8-4f985737a21d",
+          "question": "For an array of size n, how many subsets are possible?",
+          "options": [
+            "n!",
+            "2^n",
+            "n^2",
+            "2n"
+          ]
+        },
+        {
+          "id": "5dfa8a27-e0cf-4b31-b6dc-4eea60462405",
+          "question": "Why is a visited array commonly used in permutation problems?",
+          "options": [
+            "To store the final answer",
+            "To avoid recursion depth errors",
+            "To ensure each element is used only once in one arrangement",
+            "To sort elements automatically"
+          ]
+        },
+        {
+          "id": "ec911694-2ae7-4751-a468-2a8c08725351",
+          "question": "In the N-Queens problem, which positions must be checked before placing a queen?",
+          "options": [
+            "Only the current row",
+            "Only adjacent cells",
+            "Current row and column only",
+            "Column, main diagonal, and anti-diagonal"
+          ]
+        },
+        {
+          "id": "01d36d1f-b819-4bc4-9498-64cec38b9991",
+          "question": "What is the base case in a standard Sudoku backtracking solution?",
+          "options": [
+            "When all empty cells have been filled validly",
+            "When one row is completed",
+            "When a digit from 1 to 9 is placed once",
+            "When the first empty cell is found"
+          ]
+        }
+      ],
+      "comments_list": []
+    },
+    {
+      "id": "4317cf39-0dbd-4d17-b0de-5fd696547faa",
+      "title": "DBMS in 100 Minutes | Complete Placement Revision | One-Shot by Sanchit Sir",
+      "subject": "DBMS",
+      "topic": "DBMS",
+      "description": "ER model, normalization, SQL, transactions, indexing.",
+      "youtube_id": "KWkm1Gip4j4",
+      "channel": "KnowledgeGATE by Sanchit Sir",
+      "duration_label": "One shot",
+      "tags": [
+        "dbms",
+        "sql",
+        "gate",
+        "semester"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## DBMS Overview\n- **DBMS (Database Management System)** is software used to store, manage, and retrieve data efficiently.\n- Main goals: **data consistency, reduced redundancy, security, concurrency control, and recovery**.\n- A **database schema** defines structure, while an **instance** is the actual data at a given time.\n- **3-schema architecture**: **Physical level** (how data is stored), **Logical level** (what data is stored), **View level** (what users see).\n- **Data independence** means changes at one level should not heavily affect another level.\n\n## ER Model\n- **ER model** is used for conceptual database design.\n- Main components:\n  - **Entity**: real-world object, e.g., Student, Course\n  - **Attribute**: property of entity, e.g., RollNo, Name\n  - **Relationship**: association between entities, e.g., Student enrolls in Course\n- Types of attributes:\n  - **Simple/Composite**\n  - **Single-valued/Multi-valued**\n  - **Stored/Derived**\n- **Keys** in ER/relational model:\n  - **Super key**: uniquely identifies tuples\n  - **Candidate key**: minimal super key\n  - **Primary key**: selected candidate key\n  - **Foreign key**: attribute referring to primary key of another table\n- Relationship cardinality: **1:1, 1:N, M:N**.\n\n## Normalization\n- Normalization reduces **redundancy** and **update anomalies**.\n- **1NF**: no repeating groups, atomic values only.\n- **2NF**: in 1NF and no **partial dependency** on a composite key.\n- **3NF**: in 2NF and no **transitive dependency** for non-prime attributes.\n- **BCNF**: for every non-trivial functional dependency **X -> Y**, **X** must be a super key.\n- Higher normal forms give better design, but too much decomposition may increase joins.\n\n## SQL Basics\n- **DDL**: CREATE, ALTER, DROP, TRUNCATE\n- **DML**: INSERT, UPDATE, DELETE\n- **DQL**: SELECT\n- **DCL**: GRANT, REVOKE\n- **TCL**: COMMIT, ROLLBACK, SAVEPOINT\n- Important clauses:\n  - **WHERE** filters rows\n  - **GROUP BY** groups rows\n  - **HAVING** filters groups\n  - **ORDER BY** sorts output\n- **JOINs** combine tables:\n  - **INNER JOIN**: matching rows only\n  - **LEFT JOIN**: all left rows + matches\n  - **RIGHT JOIN**: all right rows + matches\n  - **FULL OUTER JOIN**: all rows from both sides\n- Common aggregate functions: **COUNT, SUM, AVG, MIN, MAX**.\n\n## Transactions and Concurrency\n- A **transaction** is a logical unit of work.\n- **ACID properties**:\n  - **Atomicity**: all or nothing\n  - **Consistency**: valid state to valid state\n  - **Isolation**: concurrent transactions should not interfere incorrectly\n  - **Durability**: committed data survives failures\n- Problems in concurrent execution:\n  - **Dirty read**\n  - **Non-repeatable read**\n  - **Phantom read**\n- **Serializability** is the correctness criterion for concurrent schedules.\n- **Lock-based protocols** and **timestamp ordering** help maintain isolation.\n\n## Indexing\n- **Index** improves search speed but increases storage and update cost.\n- **Primary index** is built on ordered primary key data.\n- **Secondary index** is on non-ordering attributes.\n- **Dense index** has index entry for every search-key value; **sparse index** has fewer entries.\n- **B+ Tree** is widely used because it supports efficient search, insert, delete, and range queries.\n- **Hash indexing** is good for equality search, but not ideal for range queries.",
+      "summary": [
+        "DBMS manages data with consistency, security, recovery, and data independence.",
+        "ER model uses entities, attributes, relationships, and keys to design databases.",
+        "Normalization removes redundancy and anomalies through 1NF, 2NF, 3NF, and BCNF.",
+        "SQL includes DDL, DML, DQL, DCL, and TCL, with joins and grouping used heavily in exams.",
+        "Transactions follow ACID properties, and concurrency issues are handled using serializability and locks.",
+        "Indexing speeds up queries; B+ trees are common, while hash indexing is best for equality search."
+      ],
+      "created_at": "2026-10-04T17:28:53.123738+00:00",
+      "questions": [
+        {
+          "id": "7679fda0-0e7a-4fe7-bf61-7cab8c76b697",
+          "question": "Which normal form removes transitive dependency of non-prime attributes?",
+          "options": [
+            "1NF",
+            "2NF",
+            "3NF",
+            "BCNF"
+          ]
+        },
+        {
+          "id": "3b04f4e8-7646-44f1-9d33-f685dd968a8a",
+          "question": "Which SQL clause is used to filter groups after aggregation?",
+          "options": [
+            "WHERE",
+            "ORDER BY",
+            "HAVING",
+            "DISTINCT"
+          ]
+        },
+        {
+          "id": "fe109420-736c-4063-b5c5-c3db67bfc673",
+          "question": "Which of the following is NOT an ACID property of transactions?",
+          "options": [
+            "Atomicity",
+            "Consistency",
+            "Isolation",
+            "Indexing"
+          ]
+        },
+        {
+          "id": "2543d3b4-a239-4f6e-bb8e-b93c7666cc5b",
+          "question": "In an ER model, a foreign key is used to:",
+          "options": [
+            "Uniquely identify every row in the same table",
+            "Refer to the primary key of another table",
+            "Store multiple values in one field",
+            "Represent a derived attribute"
+          ]
+        },
+        {
+          "id": "dc2c1be6-8492-478e-9401-69333fdc1364",
+          "question": "Which indexing structure is most suitable for efficient range queries?",
+          "options": [
+            "Hash index",
+            "B+ Tree index",
+            "Bitmap only",
+            "Stack index"
+          ]
+        }
+      ],
+      "comments_list": []
+    },
+    {
+      "id": "7822e614-64d8-42c2-a814-74a199cb7cb7",
+      "title": "Operating System 07 | Page Replacement Algorithms, File System & Disk Scheduling | CS IT | GATE 2025",
+      "subject": "Operating Systems",
+      "topic": "Operating Systems",
+      "description": "Processes, scheduling, synchronization, deadlock, memory management.",
+      "youtube_id": "1RQrCXiPME8",
+      "channel": "GATE Wallah CSE & DA",
+      "duration_label": "One shot",
+      "tags": [
+        "os",
+        "gate",
+        "semester",
+        "cs"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## Page Replacement Algorithms\n- In **virtual memory**, when a page fault occurs and all frames are full, the OS must choose a page to remove. This is called **page replacement**.\n- **FIFO (First In First Out)** removes the oldest loaded page. It is simple but may show **Belady\u2019s anomaly**, where more frames can cause more page faults.\n- **LRU (Least Recently Used)** removes the page not used for the longest time in the past. It gives good performance and is a stack algorithm, so it does not show Belady\u2019s anomaly.\n- **Optimal page replacement** removes the page that will not be used for the longest time in future. It gives minimum page faults but is only theoretical because future reference is unknown.\n- **Second Chance/Clock** improves FIFO using a reference bit. Pages with reference bit 1 get another chance.\n- **Page fault rate** affects CPU utilization. Very high page faults lead to **thrashing**, where the system spends more time swapping than executing.\n\n## File System\n- A **file system** manages how data is stored, named, organized, and retrieved on secondary storage.\n- A file has attributes such as **name, type, size, location, protection, and timestamps**.\n- Common file operations are **create, open, read, write, seek, close, and delete**.\n- A **directory** stores file information and supports hierarchical organization.\n- File allocation methods:\n  - **Contiguous allocation**: file blocks are stored together. Fast access but suffers from external fragmentation.\n  - **Linked allocation**: each block points to the next. No external fragmentation, but random access is slow.\n  - **Indexed allocation**: an index block stores addresses of all file blocks. Good for direct access.\n- Free space can be managed using **bit map**, **linked list**, or **grouping**.\n- Protection methods include **access control** and permission bits for read, write, and execute.\n\n## Disk Scheduling\n- Disk scheduling decides the order of servicing disk I/O requests to reduce **seek time** and improve throughput.\n- **FCFS** serves requests in arrival order. It is fair but may have high average seek time.\n- **SSTF (Shortest Seek Time First)** chooses the request nearest to current head position. It reduces seek time but may starve far requests.\n- **SCAN** moves the head in one direction servicing requests, then reverses direction. It is also called the elevator algorithm.\n- **C-SCAN** services requests in one direction only; after reaching the end, the head returns quickly to the beginning. It gives more uniform waiting time.\n- **LOOK** and **C-LOOK** are improved versions of SCAN and C-SCAN; they move only up to the last pending request, not necessarily to the physical end.\n- Important performance terms are **seek time**, **rotational latency**, and **transfer time**.\n\n## Exam Tips\n- Remember: **FIFO can have Belady\u2019s anomaly**, but **LRU and Optimal cannot**.\n- In theory questions, compare algorithms on **fairness, starvation, and average service time**.\n- In numericals, carefully track page references or disk head movement step by step.\n- For file allocation, connect method with access type: **contiguous/indexed for direct access**, **linked for sequential access**.",
+      "summary": [
+        "Page replacement selects a victim page during a page fault when memory frames are full.",
+        "FIFO is simple but can suffer from Belady\u2019s anomaly, while LRU and Optimal are stack algorithms.",
+        "A file system organizes files, directories, allocation methods, and protection on secondary storage.",
+        "Contiguous, linked, and indexed allocation differ in speed, fragmentation, and access support.",
+        "Disk scheduling algorithms like SSTF, SCAN, and C-SCAN aim to reduce seek time and improve performance."
+      ],
+      "created_at": "2026-10-04T17:28:34.887013+00:00",
+      "questions": [
+        {
+          "id": "878619dd-a2df-4c2a-9fdb-9ad439716fdf",
+          "question": "Which page replacement algorithm can suffer from Belady\u2019s anomaly?",
+          "options": [
+            "FIFO",
+            "LRU",
+            "Optimal",
+            "LFU"
+          ]
+        },
+        {
+          "id": "f06637b8-7e19-48a3-a1e9-d6d392ca849c",
+          "question": "Which file allocation method is best suited for direct/random access with no need to traverse earlier blocks?",
+          "options": [
+            "Linked allocation",
+            "Indexed allocation",
+            "Sequential allocation only",
+            "Chained free list"
+          ]
+        },
+        {
+          "id": "13dea03b-7aed-4f06-9219-6bcaf00b4077",
+          "question": "A disk scheduling algorithm services requests only while moving in one direction and then returns to the beginning without servicing on the return. Which algorithm is this?",
+          "options": [
+            "SCAN",
+            "LOOK",
+            "C-SCAN",
+            "SSTF"
+          ]
+        },
+        {
+          "id": "eb4f4abc-0b01-4e8f-9d83-a4624b200996",
+          "question": "Which statement about SSTF disk scheduling is correct?",
+          "options": [
+            "It always gives uniform waiting time",
+            "It may cause starvation of far requests",
+            "It is identical to FCFS",
+            "It always performs worse than SCAN"
+          ]
+        },
+        {
+          "id": "90d1304f-d6f0-480d-9a28-01608715c27d",
+          "question": "Which page replacement algorithm gives the minimum possible number of page faults for a given reference string?",
+          "options": [
+            "FIFO",
+            "LRU",
+            "Optimal",
+            "Second Chance"
+          ]
+        }
+      ],
+      "comments_list": [
+        {
+          "id": "35900ce6-9568-464d-bfbf-44295fce7aac",
+          "video_id": "7822e614-64d8-42c2-a814-74a199cb7cb7",
+          "author": "Guest",
+          "text": "Explanation mast tha, deadlock samajh aa gaya bhai!",
+          "created_at": "2026-10-04T17:33:49.826761+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ec54fe03-e405-4825-94dd-ba0700a1102e",
+      "title": "DSA Free Course | Dynamic Programming In One Shot | DSA | DP In One Shot",
+      "subject": "DSA",
+      "topic": "Dynamic Programming",
+      "description": "Memoization, tabulation, knapsack, LCS, LIS \u2014 the classic interview patterns.",
+      "youtube_id": "Z8USYkiRvZw",
+      "channel": "GeeksforGeeks",
+      "duration_label": "One shot",
+      "tags": [
+        "dsa",
+        "interview",
+        "coding",
+        "dp"
+      ],
+      "source": "admin",
+      "status": "ready",
+      "ai_generated": true,
+      "notes_md": "## What is Dynamic Programming?\n- **Dynamic Programming (DP)** is a method to solve problems by breaking them into **overlapping subproblems** and storing answers so we do not recompute them.\n- DP is useful when a problem has:\n  - **Optimal substructure**: final answer can be built from smaller answers.\n  - **Overlapping subproblems**: same subproblem appears many times.\n- Main goal: reduce exponential recursion into **polynomial time**.\n\n## Memoization vs Tabulation\n- **Memoization** = top-down DP.\n  - Start with recursion.\n  - Store results in a **dp array/map**.\n  - If answer already exists, return it.\n- **Tabulation** = bottom-up DP.\n  - Build solution from smallest subproblems.\n  - Usually uses loops.\n  - Often avoids recursion stack.\n- General rule:\n  - Memoization is easier to write from recursive thinking.\n  - Tabulation is often better for **space optimization**.\n\n## Steps to Solve a DP Problem\n- Identify the **state**: what parameters define a subproblem?\n- Write the **transition**: how current state depends on previous states.\n- Define **base cases** clearly.\n- Decide storage: 1D array, 2D array, or more.\n- Try **space optimization** if only previous rows/states are needed.\n\n## 0/1 Knapsack Pattern\n- Given items with **weight** and **value**, maximize value within capacity.\n- State: `dp[i][w]` = best value using first `i` items and capacity `w`.\n- Transition:\n  - Not take item `i`.\n  - Take item `i` if weight allows.\n- Formula: `dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]])`.\n- Time complexity: **O(n*W)**.\n- Space can be reduced to **O(W)** using reverse loop on capacity.\n\n## Longest Common Subsequence (LCS)\n- LCS finds the longest subsequence common in two strings.\n- State: `dp[i][j]` = LCS length for prefixes of lengths `i` and `j`.\n- Transition:\n  - If characters match: `1 + dp[i-1][j-1]`\n  - Else: `max(dp[i-1][j], dp[i][j-1])`\n- Time complexity: **O(n*m)**.\n- Very important pattern for string DP and reconstruction questions.\n\n## Longest Increasing Subsequence (LIS)\n- LIS asks for longest subsequence with strictly increasing order.\n- Classic DP state: `dp[i]` = LIS ending at index `i`.\n- Transition: check all `j < i`; if `a[j] < a[i]`, update `dp[i]`.\n- Time complexity of classic DP: **O(n^2)**.\n- Optimized LIS using binary search runs in **O(n log n)**, but the DP idea is important for interviews.\n\n## Common Mistakes\n- Wrong state definition.\n- Forgetting base case initialization.\n- Using tabulation loop order incorrectly.\n- In space-optimized knapsack, iterating forward instead of backward for **0/1** case.\n- Confusing **subsequence** with **substring**.\n\n## Exam Tips\n- Practice identifying state and transition quickly.\n- Write recurrence before coding.\n- Always test on small examples.\n- Learn classic templates: **Fibonacci, Knapsack, LCS, LIS**.",
+      "summary": [
+        "Dynamic Programming stores repeated subproblem answers to improve time complexity.",
+        "Memoization is top-down recursion with caching, while tabulation is bottom-up iterative DP.",
+        "0/1 Knapsack uses include/exclude transitions and commonly runs in O(n*W).",
+        "LCS uses a 2D DP table on two strings with match and non-match transitions.",
+        "LIS classic DP is O(n^2), while an optimized binary-search method gives O(n log n)."
+      ],
+      "created_at": "2026-10-04T17:28:15.724423+00:00",
+      "questions": [
+        {
+          "id": "0fb89293-d415-464f-8b40-5efcd6196326",
+          "question": "Which property is necessary for applying Dynamic Programming effectively?",
+          "options": [
+            "Optimal substructure and overlapping subproblems",
+            "Only sorting of input",
+            "Only greedy choice property",
+            "Only graph representation"
+          ]
+        },
+        {
+          "id": "a0d2b6e0-7b1f-4f89-ba06-7166efd92d73",
+          "question": "What is the main difference between memoization and tabulation?",
+          "options": [
+            "Memoization is bottom-up, tabulation is top-down",
+            "Memoization uses recursion with caching, tabulation fills a table iteratively",
+            "Both are exactly the same in implementation",
+            "Tabulation always uses more memory than memoization"
+          ]
+        },
+        {
+          "id": "9e17534e-7d58-4850-a57b-bbd1754d7295",
+          "question": "In 0/1 Knapsack, why do we iterate capacity from high to low in 1D space optimization?",
+          "options": [
+            "To allow taking an item multiple times",
+            "To avoid overwriting states needed for the same item",
+            "To reduce item weights",
+            "To sort items automatically"
+          ]
+        },
+        {
+          "id": "1956c2e0-1c61-4a91-b23e-8383bc72b215",
+          "question": "For two strings of lengths n and m, what is the time complexity of the standard DP solution for LCS?",
+          "options": [
+            "O(n+m)",
+            "O(n log m)",
+            "O(n*m)",
+            "O(2^n)"
+          ]
+        },
+        {
+          "id": "5cb57194-315c-4f69-ad89-6034534fde7a",
+          "question": "In the classic O(n^2) DP approach for LIS, what does dp[i] usually represent?",
+          "options": [
+            "Length of LIS in the whole array",
+            "Length of LIS ending at index i",
+            "Number of increasing subsequences till i",
+            "Minimum value seen till index i"
+          ]
+        }
+      ],
+      "comments_list": []
+    }
+  ],
+  "papers": [
+    {
+      "id": "d109a132-7efc-4d84-bdc2-c7fbb68b0023",
+      "title": "Operating Systems Sem-3 Endsem 2024",
+      "subject": "Operating Systems",
+      "exam": "University Exam",
+      "year": "2024",
+      "uploader": "Guest",
+      "file_name": "test-os-paper.pdf",
+      "size": 1176,
+      "status": "approved",
+      "reason": "Clear, genuine Operating Systems university question paper matching the declared title and topic.",
+      "relevance": 99,
+      "created_at": "2026-10-04T17:33:53.181213+00:00"
+    },
+    {
+      "id": "86547c6d-273a-4205-95af-bae70cdaf6c0",
+      "title": "Operating Systems Sem-3 Endsem 2024",
+      "subject": "Operating Systems",
+      "exam": "University Exam",
+      "year": "2024",
+      "uploader": "Test Seniors",
+      "file_name": "test-os-paper.pdf",
+      "size": 1176,
+      "status": "approved",
+      "reason": "Clear, legitimate Operating Systems university question paper matching the declared title and topic.",
+      "relevance": 99,
+      "created_at": "2026-10-04T17:31:52.269068+00:00"
+    }
+  ],
+  "notes": [],
+  "suggestions": [],
+  "stats": {
+    "videos": 7,
+    "questions": 35,
+    "papers": 2,
+    "notes": 0,
+    "comments": 2
+  }
+}
