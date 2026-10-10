@@ -1,61 +1,93 @@
 import json
-import asyncio
+from typing import List
+
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
-from typing import List
-from backend.models import ChatMessage, ChatHistoryItem
+
+from backend import llm
 from backend.database import db
+from backend.models import ChatHistoryItem, ChatMessage
 
 router = APIRouter()
+
+MAX_HISTORY = 24      # last N messages sent to the model as context
+MAX_TOKENS = 1500
+
+SYSTEM_PROMPT = """You are Ghee Guru 🧈, the friendly AI study buddy inside the "Ghee Khatam" website \
+(a site that gives students one best YouTube video per topic, AI notes, practice questions and PYQs).
+
+Personality:
+- Talk like a smart, warm senior/friend. Reply in Hinglish (Hindi written in English letters mixed with English) \
+by default. If the user writes in pure English, reply in English; if in Hindi script, reply in Hindi. \
+Always mirror the user's language and tone.
+- You are a real, general-purpose assistant. Help with studies first (DSA, OS, DBMS, CN, ML, maths, physics, \
+chemistry, exam strategy, motivation), but you can also chat about anything else: career, coding, life advice, \
+general knowledge, jokes, casual talk. Never refuse a normal question just because it is not about studies.
+
+How to answer:
+- Actually answer the exact question that was asked, using the conversation so far for context. \
+Never repeat earlier answers or reuse stock lines. If a question is vague, ask one short clarifying question.
+- Be accurate. If you are not sure about something, say so instead of guessing. Do not invent facts, links or sources.
+- Keep it concise and conversational (usually 2-8 lines). Go longer only when the user wants a detailed \
+explanation, and then use clear steps, small examples or code.
+- Output PLAIN TEXT only, because the chat window does not render Markdown: no ** bold, no # headers, no tables. \
+Use simple numbered lines or hyphen lines for lists, and plain indented lines for code.
+- Use an emoji occasionally (🧈 is your signature), not in every line.
+- Be supportive about exam stress and low motivation, and give practical next steps. If someone seems to be in \
+serious distress, respond with care and encourage them to talk to someone they trust or a professional."""
+
+
+def _sse(payload: dict) -> str:
+    return f"data: {json.dumps(payload)}\n\n"
+
 
 @router.get("/chat/{session_id}/history", response_model=List[ChatHistoryItem])
 def get_chat_history(session_id: str):
     return db.get_chat_history(session_id)
 
-GHEE_RESPONSES = [
-    "Arre wah! Ekdam badhiya sawal hai! 🧈\n\nPadhai me consistent rehne ke liye **Pomodoro technique** (25 min study + 5 min break) use karo. Focus ekdam tight rahega!",
-    "Bhai tension mat le! Ghee Khatam par har ek topic ka 1-shot video + PYQ solution ready hai. Bas ek video dekho aur notes revise karo! 🧈",
-    "OS me deadlock ke 4 necessary conditions yaad rakho:\n1. Mutual Exclusion\n2. Hold and Wait\n3. No Preemption\n4. Circular Wait\n\nYe 4 conditions direct exam me aati hain!",
-    "DSA seekhne ka simple rule hai:\n- 1 language master karo (C++ / Java)\n- Arrays & Strings se start karo\n- Daily 2 LeetCode easy/medium solve karo\n- Revision weekly zaroori hai! 🧈",
-    "Computer Networks me OSI vs TCP/IP model sabse important topic hai. OSI has 7 layers, TCP/IP has 4 (or 5). Exam me diagram banana mat bhoolna!"
-]
 
 @router.post("/chat/stream")
 async def chat_stream(req: ChatMessage):
-    # Save user message
-    db.add_chat_message(req.session_id, "user", req.message)
+    message = req.message.strip()
+    if not message:
+        raise HTTPException(status_code=422, detail="Message khaali hai")
 
-    # Determine assistant reply
-    msg_lower = req.message.lower()
-    if "dsa" in msg_lower or "roadmap" in msg_lower:
-        reply_text = (
-            "Bilkul bhai! 🧈\n\nDSA roadmap simple rakho:\n"
-            "1) **Basics strong karo**: Time & Space Complexity, Arrays, Strings, Recursion\n"
-            "2) **Core Data Structures**: Linked List, Stack, Queue, Hashing, Trees, Graphs\n"
-            "3) **Core Algorithms**: Binary Search, Sliding Window, Two Pointers, Greedy, Backtracking, DP\n\n"
-            "Daily 2-4 questions solve karo + revision!"
+    if llm.provider() is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Ghee Guru ka AI abhi connected nahi hai. Server par GEMINI_API_KEY set karo (free key: aistudio.google.com).",
         )
-    elif "os" in msg_lower or "deadlock" in msg_lower or "cpu" in msg_lower:
-        reply_text = (
-            "Deadlock & CPU Scheduling OS ke 2 sabse heavy topics hain! 🧈\n\n"
-            "- **Deadlock**: Banker's Algorithm & Resource Allocation Graph bilkul mat chodna.\n"
-            "- **CPU Scheduling**: Round Robin & FCFS + Gantt Chart numerical har saal aate hain!"
-        )
-    else:
-        import random
-        reply_text = random.choice(GHEE_RESPONSES)
 
-    # Save assistant response to DB
-    db.add_chat_message(req.session_id, "assistant", reply_text)
+    # Conversation context = previous turns + this new user message.
+    prior = db.get_chat_history(req.session_id)[-MAX_HISTORY:]
+    messages = [{"role": m["role"], "content": m["content"]} for m in prior if m["content"].strip()]
+    messages.append({"role": "user", "content": message})
+    db.add_chat_message(req.session_id, "user", message)
 
-    # Stream reply as JSON event SSE (data: {"delta": "..."})
     async def generate():
-        tokens = reply_text.split(" ")
-        for i, token in enumerate(tokens):
-            delta = token + (" " if i < len(tokens) - 1 else "")
-            evt = f"data: {json.dumps({'delta': delta})}\n\n"
-            yield evt
-            await asyncio.sleep(0.04)
-        yield f"data: {json.dumps({'done': True})}\n\n"
+        reply = ""
+        try:
+            async for text in llm.stream_chat(SYSTEM_PROMPT, messages, MAX_TOKENS):
+                reply += text
+                yield _sse({"delta": text})
+        except Exception as e:  # network / auth / rate-limit / safety-block errors
+            print(f"[ghee-guru] LLM error: {type(e).__name__}: {e}")
+            if reply:
+                db.add_chat_message(req.session_id, "assistant", reply)  # keep the partial answer
+            else:
+                hist = db.chat_history.get(req.session_id, [])
+                if hist and hist[-1]["role"] == "user":
+                    hist.pop()  # no reply was produced, so drop the dangling question
+                yield _sse({"delta": "Oops, abhi mera dimaag connect nahi ho pa raha 😅 Thodi der baad phir try karo."})
+            yield _sse({"done": True, "error": True})
+            return
 
-    return StreamingResponse(generate(), media_type="text/event-stream")
+        if reply.strip():
+            db.add_chat_message(req.session_id, "assistant", reply)
+        yield _sse({"done": True})
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )

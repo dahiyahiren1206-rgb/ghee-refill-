@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from typing import Optional, List
 from backend.models import Video, QuestionOut, AttemptRequest, AttemptResult, VoteRequest, CommentCreate, Comment, Stats, SearchResponse
 from backend.database import db
+from backend import moderation
 
 router = APIRouter()
 
@@ -43,8 +44,20 @@ def get_comments(video_id: str):
     return db.get_comments(video_id)
 
 @router.post("/videos/{video_id}/comments", response_model=Comment)
-def add_comment(video_id: str, req: CommentCreate):
-    return db.add_comment(video_id, req.author, req.text)
+async def add_comment(video_id: str, req: CommentCreate):
+    video = db.get_video(video_id)
+    if not video:
+        raise HTTPException(status_code=404, detail="Video not found")
+    text = req.text.strip()
+    author = (req.author or "").strip()[:40] or "Guest"
+    if not text:
+        raise HTTPException(status_code=422, detail="Comment khaali hai")
+    if len(text) > 1000:
+        raise HTTPException(status_code=422, detail="Comment 1000 characters se chhota rakho")
+    ok, reason = await moderation.review_comment(text, video["title"], author)
+    if not ok:
+        raise HTTPException(status_code=422, detail={"message": "Comment rejected", "reason": reason})
+    return db.add_comment(video_id, author, text)
 
 @router.get("/search", response_model=SearchResponse)
 def search_videos(q: Optional[str] = Query(default="")):

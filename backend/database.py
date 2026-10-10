@@ -1,4 +1,5 @@
 import json
+import re
 import os
 import uuid
 from datetime import datetime, timezone
@@ -114,16 +115,62 @@ class Database:
         self.comments[video_id].append(c)
         return c
 
+    _STOP = {"the", "a", "an", "of", "in", "on", "to", "for", "and", "or", "is", "are", "how", "what", "why",
+             "kya", "hai", "ka", "ke", "ki", "me", "mein", "se", "ko", "aur", "video", "topic", "explain",
+             "one", "shot", "oneshot", "best", "full", "course", "tutorial", "notes"}
+    _SYN = {"os": "operating system", "cn": "computer networks", "dp": "dynamic programming",
+            "ml": "machine learning", "dsa": "data structures algorithms", "networks": "network",
+            "networking": "network", "chem": "chemistry", "organic": "organic", "algo": "algorithm",
+            "algos": "algorithm", "deadlocks": "deadlock", "database": "dbms", "databases": "dbms",
+            "sql": "dbms"}
+
+    @staticmethod
+    def _words(text):
+        return re.findall(r"[a-z0-9+#]+", (text or "").lower())
+
+    def _query_terms(self, query):
+        terms = []
+        for w in self._words(query):
+            for x in self._words(self._SYN.get(w, w)):
+                if x not in self._STOP and len(x) > 1 and x not in terms:
+                    terms.append(x)
+        return terms
+
+    def _score(self, v, terms, phrase):
+        title = set(self._words(v.get("title")))
+        meta = set(self._words(v.get("topic"))) | set(self._words(v.get("subject")))
+        tags = set(w for t in v.get("tags", []) for w in self._words(t))
+        body = set(self._words(v.get("description"))) | set(self._words(v.get("notes_md"))) | \
+               set(w for s_ in v.get("summary", []) for w in self._words(s_))
+        score, hit = 0, 0
+        for t in terms:
+            w = 0
+            if t in title: w = 5
+            elif t in meta: w = 4
+            elif t in tags: w = 3
+            elif t in body: w = 1
+            if w:
+                hit += 1
+                score += w
+        if phrase and phrase in (v.get("title", "") + " " + v.get("topic", "")).lower():
+            score += 6
+        return score, hit
+
     def search(self, query):
-        if not query:
-            return {"query": "", "best": None, "alternatives": []}
-        matches = self.get_videos(search=query)
-        if not matches:
-            # Fallback to all videos
-            matches = list(self.videos.values())
-        best = matches[0] if matches else None
-        alts = matches[1:] if len(matches) > 1 else []
-        return {"query": query, "best": best, "alternatives": alts}
+        query = (query or "").strip()
+        terms = self._query_terms(query)
+        if not terms:
+            return {"query": query, "best": None, "alternatives": []}
+        phrase = " ".join(self._words(query))
+        ranked = []
+        for v in self.videos.values():
+            score, hit = self._score(v, terms, phrase)
+            # every meaningful word must match somewhere unless the query is long
+            if hit and hit >= max(1, (len(terms) + 1) // 2):
+                ranked.append((score, v))
+        ranked.sort(key=lambda x: -x[0])
+        vids = [v for _, v in ranked]
+        return {"query": query, "best": vids[0] if vids else None, "alternatives": vids[1:7]}
 
     def get_papers(self, subject=None, status=None, search=None):
         res = list(self.papers)
@@ -136,7 +183,8 @@ class Database:
             res = [p for p in res if s in p.get("title", "").lower() or s in p.get("subject", "").lower()]
         return res
 
-    def add_paper(self, title, subject, exam, year, uploader, file_name, size, file_data=None):
+    def add_paper(self, title, subject, exam, year, uploader, file_name, size, file_data=None,
+                  status="approved", reason="", relevance=0):
         p = {
             "id": str(uuid.uuid4()),
             "title": title,
@@ -146,17 +194,57 @@ class Database:
             "uploader": uploader or "Guest",
             "file_name": file_name,
             "size": size,
-            "status": "approved",
-            "reason": f"Genuine {subject} exam question paper matching title.",
-            "relevance": 98,
+            "status": status,
+            "reason": reason,
+            "relevance": relevance,
             "created_at": datetime.now(timezone.utc).isoformat(),
             "file_data": file_data
         }
-        self.papers.insert(0, p)
+        if status == "approved":
+            self.papers.insert(0, p)
         return p
 
     def get_paper(self, paper_id):
         return next((p for p in self.papers if p["id"] == paper_id), None)
+
+    def get_note(self, note_id):
+        return next((n for n in self.notes if n["id"] == note_id), None)
+
+    def add_note(self, title, topic, uploader, file_name, size, file_data=None, status="approved", reason="", relevance=0):
+        n = {
+            "id": str(uuid.uuid4()),
+            "title": title,
+            "topic": topic,
+            "uploader": uploader or "Guest",
+            "file_name": file_name,
+            "size": size,
+            "status": status,
+            "reason": reason,
+            "relevance": relevance,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "file_data": file_data,
+        }
+        if status == "approved":
+            self.notes.insert(0, n)
+        return n
+
+    def add_suggestion(self, youtube_url, youtube_id, title, topic, why, suggested_by, status="approved", reason="", relevance=0):
+        sug = {
+            "id": str(uuid.uuid4()),
+            "youtube_id": youtube_id,
+            "youtube_url": youtube_url,
+            "title": title,
+            "topic": topic,
+            "why": why,
+            "suggested_by": suggested_by or "Guest",
+            "status": status,
+            "reason": reason,
+            "relevance": relevance,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        }
+        if status == "approved":
+            self.suggestions.insert(0, sug)
+        return sug
 
     def get_chat_history(self, session_id):
         return self.chat_history.get(session_id, [])

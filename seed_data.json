@@ -17,7 +17,7 @@
       "source": "admin",
       "status": "ready",
       "ai_generated": true,
-      "notes_md": "## Linear Regression and Prediction\n- **Linear regression** is a simple machine learning method used to predict a number, like marks, price, or height.\n- It tries to fit a **straight line** through data points.\n- The line is often written as **y = mx + b**, where:\n  - **x** = input feature\n  - **y** = predicted output\n  - **m** = slope or weight\n  - **b** = bias or intercept\n- A neural network with one input and one output can behave like linear regression in a basic case.\n- The goal is to choose values of weight and bias so predictions are as close as possible to real values.\n\n## Loss Function and Error\n- To know how good or bad the model is, we use a **loss function**.\n- Loss measures the difference between **predicted value** and **actual value**.\n- A common loss in regression is **Mean Squared Error (MSE)**.\n- If loss is high, the model is making poor predictions.\n- If loss is low, the model fits the data better.\n- Training means adjusting model parameters to **reduce loss**.\n\n## Gradient Descent: How the Model Learns\n- **Gradient descent** is an optimization method used to reduce the loss.\n- Imagine standing on a hill and trying to walk down to the lowest point. Gradient descent does the same with loss.\n- It changes weights and bias in small steps.\n- The **gradient** tells the direction of the steepest increase, so we move in the opposite direction to decrease loss.\n- Update idea:\n  - new parameter = old parameter - learning rate \u00d7 gradient\n- **Learning rate** controls step size:\n  - too large -> may overshoot or fail to converge\n  - too small -> training becomes very slow\n- Repeating updates many times is called **training over epochs**.\n\n## Overfitting and Generalization\n- **Overfitting** happens when a model learns training data too closely, including noise.\n- Such a model performs very well on training data but poorly on new data.\n- A very complex model is more likely to overfit.\n- Good machine learning is not just memorizing; it is **generalizing** to unseen examples.\n- Signs of overfitting:\n  - very low training error\n  - high testing or validation error\n\n## Train-Test Split\n- To check whether a model generalizes well, data is divided into **training set** and **test set**.\n- **Training set** is used to learn weights and bias.\n- **Test set** is used only to evaluate final performance.\n- This is called **train-test split**.\n- If a model performs well on both sets, it is likely learning useful patterns.\n- The test set should not be used for training, otherwise evaluation becomes unfair.\n\n## Exam Focus\n- Linear regression predicts continuous values.\n- Gradient descent minimizes loss by updating parameters step by step.\n- Learning rate is a key hyperparameter.\n- Overfitting reduces performance on unseen data.\n- Train-test split helps measure real model quality.",
+      "notes_md": "## Linear Regression and Prediction\n- **Linear regression** is a simple machine learning method used to predict a number, like marks, price, or height.\n- It tries to fit a **straight line** through data points.\n- The line is often written as **y = mx + b**, where:\n  - **x** = input feature\n  - **y** = predicted output\n  - **m** = slope or weight\n  - **b** = bias or intercept\n- A neural network with one input and one output can behave like linear regression in a basic case.\n- The goal is to choose values of weight and bias so predictions are as close as possible to real values.\n\n## Loss Function and Error\n- To know how good or bad the model is, we use a **loss function**.\n- Loss measures the difference between **predicted value** and **actual value**.\n- A common loss in regression is **Mean Squared Error (MSE)**.\n- If loss is high, the model is making poor predictions.\n- If loss is low, the model fits the data better.\n- Training means adjusting model parameters to **reduce loss**.\n\n## Gradient Descent: How the Model Learns\n- **Gradient descent** is an optimization method used to reduce the loss.\n- Imagine standing on a hill and trying to walk down to the lowest point. Gradient descent does the same with loss.\n- It changes weights and bias in small steps.\n- The **gradient** tells the direction of the steepest increase, so we move in the opposite direction to decrease loss.\n- Update idea:\n  - new parameter = old parameter - learning rate × gradient\n- **Learning rate** controls step size:\n  - too large -> may overshoot or fail to converge\n  - too small -> training becomes very slow\n- Repeating updates many times is called **training over epochs**.\n\n## Overfitting and Generalization\n- **Overfitting** happens when a model learns training data too closely, including noise.\n- Such a model performs very well on training data but poorly on new data.\n- A very complex model is more likely to overfit.\n- Good machine learning is not just memorizing; it is **generalizing** to unseen examples.\n- Signs of overfitting:\n  - very low training error\n  - high testing or validation error\n\n## Train-Test Split\n- To check whether a model generalizes well, data is divided into **training set** and **test set**.\n- **Training set** is used to learn weights and bias.\n- **Test set** is used only to evaluate final performance.\n- This is called **train-test split**.\n- If a model performs well on both sets, it is likely learning useful patterns.\n- The test set should not be used for training, otherwise evaluation becomes unfair.\n\n## Exam Focus\n- Linear regression predicts continuous values.\n- Gradient descent minimizes loss by updating parameters step by step.\n- Learning rate is a key hyperparameter.\n- Overfitting reduces performance on unseen data.\n- Train-test split helps measure real model quality.",
       "summary": [
         "Linear regression fits a line to predict continuous values from input data.",
         "Loss function measures prediction error, and training aims to reduce this loss.",
@@ -35,7 +35,9 @@
             "To increase the number of input features",
             "To divide data into training and test sets",
             "To convert regression into classification"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Gradient descent loss ko kam karne ke liye parameters ko loss ke negative gradient ki direction me update karta hai."
         },
         {
           "id": "9ed6eb88-cc7d-4911-919f-528fbad3b268",
@@ -45,7 +47,9 @@
             "The exact labels of all future data points",
             "Only the largest value in the dataset",
             "A random split of the dataset"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Linear regression input aur output ke beech best straight-line relationship seekhta hai."
         },
         {
           "id": "b8b85f7f-7d1c-416e-bd70-e2aedcde6992",
@@ -55,7 +59,9 @@
             "The model will always become more accurate",
             "The training data becomes larger",
             "Overfitting is completely removed"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Bahut bada learning rate minimum ko overshoot kar deta hai, isliye model converge nahi karta."
         },
         {
           "id": "74911f44-4f86-44d8-a030-fddecc91a899",
@@ -65,7 +71,9 @@
             "High training error and high test error",
             "Equal training and test error with poor features",
             "Low test error and moderate training error"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Overfitting = training error kam, lekin test (unseen data) error zyada."
         },
         {
           "id": "ff6bd996-3999-4f32-8911-86a6e5ae9944",
@@ -75,7 +83,9 @@
             "To make gradient descent faster in all cases",
             "To remove the need for a loss function",
             "To guarantee zero prediction error"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Train-test split se pata chalta hai model unseen data par kaisa perform karega."
         }
       ],
       "comments_list": [
@@ -124,7 +134,9 @@
             "Network layer",
             "Data Link layer",
             "Presentation layer"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Network layer (Layer 3) IP addresses se packets ko route karta hai."
         },
         {
           "id": "57fc0ca6-4bbe-47bd-9644-12f3a8e35066",
@@ -134,7 +146,9 @@
             "UDP provides sequencing and acknowledgments",
             "TCP provides reliable delivery, while UDP has lower overhead",
             "UDP is used only for email transfer"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "TCP reliable delivery deta hai (sequencing + ACK), UDP me overhead kam hota hai."
         },
         {
           "id": "130104e2-1aba-40c6-a014-272cd2cdfe8f",
@@ -144,7 +158,9 @@
             "Transport layer",
             "Internet layer",
             "Link layer"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "TCP/IP ka Internet layer OSI ke Network layer ka kaam karta hai."
         },
         {
           "id": "1b48c148-9fa2-46f4-bb90-2f5efe3361b2",
@@ -154,7 +170,9 @@
             "62",
             "64",
             "126"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "/26 me 6 host bits hain: 2^6 − 2 = 62 usable hosts."
         },
         {
           "id": "efdeda5b-9682-490c-8c99-915174f1729b",
@@ -164,17 +182,19 @@
             "Dividing a large network into smaller sub-networks",
             "Converting TCP into UDP",
             "Encrypting data at the Presentation layer"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Subnetting ek bade network ko chhote sub-networks me todta hai."
         }
       ],
       "comments_list": []
     },
     {
       "id": "9fe1a44d-ba20-4f1a-9b3f-788ff562b847",
-      "title": "Organic Name Reactions One Shot \ud83d\udd25\ud83d\udd25 Guarantee \u0935\u093e\u0932\u0940 Tricks By Yogesh Jain Sir - OC Legend",
+      "title": "Organic Name Reactions One Shot 🔥🔥 Guarantee वाली Tricks By Yogesh Jain Sir - OC Legend",
       "subject": "Chemistry",
       "topic": "Organic Chemistry",
-      "description": "Reaction mechanisms, named reactions, conversions \u2014 JEE/NEET level.",
+      "description": "Reaction mechanisms, named reactions, conversions — JEE/NEET level.",
       "youtube_id": "ieCu1ZbYCyI",
       "channel": "PW Test Series",
       "duration_label": "One shot",
@@ -187,11 +207,11 @@
       "source": "admin",
       "status": "ready",
       "ai_generated": true,
-      "notes_md": "## Big Picture: How to Study Name Reactions\n- In **JEE/NEET Organic Chemistry**, named reactions are asked as **direct products, reagents, mechanisms, and conversions**.\n- Best approach: learn each reaction by **substrate + reagent + key intermediate + final product**.\n- Most questions become easy if you track **electrophile, nucleophile, oxidation state, and rearrangement**.\n\n## Must-Know Named Reactions\n- **Aldol Condensation**: aldehydes/ketones with **alpha-H** react in base to give **beta-hydroxy carbonyl**, on heating give **alpha,beta-unsaturated carbonyl**.\n- **Cannizzaro Reaction**: aldehydes **without alpha-H** react with concentrated base to give **one alcohol + one carboxylate** by self oxidation-reduction.\n- **Haloform Reaction**: compounds with **-COCH3** or **CH3CH(OH)-** give **CHI3/CHBr3/CHCl3** with halogen + base. Useful test for **methyl ketone** and **ethanol/secondary alcohol of type CH3CH(OH)-**.\n- **Friedel\u2013Crafts Alkylation/Acylation**: aromatic ring reacts with **R-X** or **RCOCl** in presence of **AlCl3**. Acylation is preferred when polyalkylation/rearrangement is a problem.\n- **Sandmeyer Reaction**: **aryl diazonium salts** give **ArCl, ArBr, ArCN** using **Cu(I) salts**. Very important in aromatic conversions.\n- **Gattermann Reaction**: diazonium salt gives **ArCl/ArBr** using **HCl/HBr + Cu powder**.\n- **Fittig/Wurtz-Fittig**: coupling of **aryl/alkyl halides with Na in dry ether** to form higher hydrocarbons.\n\n## Rearrangement and Reduction Reactions\n- **Clemmensen Reduction**: **Zn(Hg)/HCl** reduces **aldehydes/ketones to alkane** in acidic medium.\n- **Wolff\u2013Kishner Reduction**: **NH2NH2/KOH, heat** also converts carbonyl to methylene, but in **basic medium**.\n- **Rosenmund Reduction**: **acid chloride to aldehyde** using **H2/Pd-BaSO4** (poisoned catalyst).\n- **Stephen Reaction**: **nitrile to aldehyde** using **SnCl2/HCl**, then hydrolysis.\n- **Etard Reaction**: oxidation of side-chain methyl on benzene using **chromyl chloride** to give **aldehyde**.\n- **Baeyer\u2013Villiger Oxidation**: ketone + peracid gives **ester**, cyclic ketone gives **lactone**; group with better migratory aptitude shifts.\n\n## Carboxylic Acid Derivatives and Amines\n- **HVZ Reaction**: carboxylic acid with **alpha-H** gives **alpha-halo acid** using **Br2/Red P**.\n- **Hell-Volhard-Zelinsky** helps in alpha-substitution of acids where direct halogenation is difficult.\n- **Hoffmann Bromamide Degradation**: **amide to amine with one carbon less** using **Br2/KOH**.\n- **Gabriel Phthalimide Synthesis**: preparation of **primary aliphatic amines only**.\n- **Carbylamine Reaction**: **1\u00b0 amine + CHCl3 + alc. KOH** gives foul-smelling **isocyanide**; test for primary amines.\n\n## Fast Conversion Tricks\n- **Benzene \u2192 aniline**: nitration then reduction.\n- **Aniline \u2192 diazonium salt**: **NaNO2/HCl, 0\u20135\u00b0C**.\n- **Diazonium salt \u2192 phenol/halide/cyanide**: choose **H2O, CuCl/CuBr, CuCN** respectively.\n- **Acid chloride \u2192 aldehyde**: use **Rosenmund**, not strong hydride.\n- **Carbonyl \u2192 hydrocarbon**: use **Clemmensen** in acid-sensitive? no; choose based on medium compatibility.\n\n## Exam Traps\n- **Cannizzaro** does not occur if **alpha-H** is present.\n- **Haloform** is specific for **methyl ketone type**.\n- **Gabriel** does not give **aryl amines** effectively.\n- In aromatic substitution, activating/deactivating groups control orientation and rate.",
+      "notes_md": "## Big Picture: How to Study Name Reactions\n- In **JEE/NEET Organic Chemistry**, named reactions are asked as **direct products, reagents, mechanisms, and conversions**.\n- Best approach: learn each reaction by **substrate + reagent + key intermediate + final product**.\n- Most questions become easy if you track **electrophile, nucleophile, oxidation state, and rearrangement**.\n\n## Must-Know Named Reactions\n- **Aldol Condensation**: aldehydes/ketones with **alpha-H** react in base to give **beta-hydroxy carbonyl**, on heating give **alpha,beta-unsaturated carbonyl**.\n- **Cannizzaro Reaction**: aldehydes **without alpha-H** react with concentrated base to give **one alcohol + one carboxylate** by self oxidation-reduction.\n- **Haloform Reaction**: compounds with **-COCH3** or **CH3CH(OH)-** give **CHI3/CHBr3/CHCl3** with halogen + base. Useful test for **methyl ketone** and **ethanol/secondary alcohol of type CH3CH(OH)-**.\n- **Friedel–Crafts Alkylation/Acylation**: aromatic ring reacts with **R-X** or **RCOCl** in presence of **AlCl3**. Acylation is preferred when polyalkylation/rearrangement is a problem.\n- **Sandmeyer Reaction**: **aryl diazonium salts** give **ArCl, ArBr, ArCN** using **Cu(I) salts**. Very important in aromatic conversions.\n- **Gattermann Reaction**: diazonium salt gives **ArCl/ArBr** using **HCl/HBr + Cu powder**.\n- **Fittig/Wurtz-Fittig**: coupling of **aryl/alkyl halides with Na in dry ether** to form higher hydrocarbons.\n\n## Rearrangement and Reduction Reactions\n- **Clemmensen Reduction**: **Zn(Hg)/HCl** reduces **aldehydes/ketones to alkane** in acidic medium.\n- **Wolff–Kishner Reduction**: **NH2NH2/KOH, heat** also converts carbonyl to methylene, but in **basic medium**.\n- **Rosenmund Reduction**: **acid chloride to aldehyde** using **H2/Pd-BaSO4** (poisoned catalyst).\n- **Stephen Reaction**: **nitrile to aldehyde** using **SnCl2/HCl**, then hydrolysis.\n- **Etard Reaction**: oxidation of side-chain methyl on benzene using **chromyl chloride** to give **aldehyde**.\n- **Baeyer–Villiger Oxidation**: ketone + peracid gives **ester**, cyclic ketone gives **lactone**; group with better migratory aptitude shifts.\n\n## Carboxylic Acid Derivatives and Amines\n- **HVZ Reaction**: carboxylic acid with **alpha-H** gives **alpha-halo acid** using **Br2/Red P**.\n- **Hell-Volhard-Zelinsky** helps in alpha-substitution of acids where direct halogenation is difficult.\n- **Hoffmann Bromamide Degradation**: **amide to amine with one carbon less** using **Br2/KOH**.\n- **Gabriel Phthalimide Synthesis**: preparation of **primary aliphatic amines only**.\n- **Carbylamine Reaction**: **1° amine + CHCl3 + alc. KOH** gives foul-smelling **isocyanide**; test for primary amines.\n\n## Fast Conversion Tricks\n- **Benzene → aniline**: nitration then reduction.\n- **Aniline → diazonium salt**: **NaNO2/HCl, 0–5°C**.\n- **Diazonium salt → phenol/halide/cyanide**: choose **H2O, CuCl/CuBr, CuCN** respectively.\n- **Acid chloride → aldehyde**: use **Rosenmund**, not strong hydride.\n- **Carbonyl → hydrocarbon**: use **Clemmensen** in acid-sensitive? no; choose based on medium compatibility.\n\n## Exam Traps\n- **Cannizzaro** does not occur if **alpha-H** is present.\n- **Haloform** is specific for **methyl ketone type**.\n- **Gabriel** does not give **aryl amines** effectively.\n- In aromatic substitution, activating/deactivating groups control orientation and rate.",
       "summary": [
         "Learn each named reaction by substrate, reagent, intermediate, and product.",
         "Cannizzaro needs aldehydes without alpha-hydrogen; aldol needs alpha-hydrogen.",
-        "Rosenmund gives aldehyde from acid chloride, while Clemmensen/Wolff\u2013Kishner remove carbonyl completely.",
+        "Rosenmund gives aldehyde from acid chloride, while Clemmensen/Wolff–Kishner remove carbonyl completely.",
         "Diazonium salts are key conversion hubs for aryl halides, phenol, and nitriles.",
         "Haloform reaction is a strong test for methyl ketone or related alcohol systems."
       ],
@@ -205,7 +225,9 @@
             "Acetaldehyde",
             "Propanal",
             "Butan-2-one"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Cannizzaro reaction un aldehydes me hota hai jinme α-hydrogen nahi hota, jaise benzaldehyde."
         },
         {
           "id": "5e1ea36c-ae18-4843-a4ca-a16434e6e7e9",
@@ -215,7 +237,9 @@
             "Zn(Hg)/HCl",
             "NH2NH2/KOH",
             "LiAlH4"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Rosenmund reduction me acid chloride ko H2/Pd-BaSO4 se aldehyde me reduce karte hain."
         },
         {
           "id": "b1b25a0e-ea0b-4d32-be97-1d5c473cca54",
@@ -225,17 +249,21 @@
             "Benzaldehyde",
             "Formaldehyde",
             "Diethyl ether"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Haloform reaction un compounds se hota hai jinme CH3CO– group hota hai, jaise acetone."
         },
         {
           "id": "c751bf45-13d2-49fd-b150-8e59a3841e4d",
           "question": "Aniline is converted to benzene diazonium chloride by using:",
           "options": [
-            "NaNO2 and HCl at 0\u20135\u00b0C",
+            "NaNO2 and HCl at 0–5°C",
             "Conc. HNO3/H2SO4",
             "Br2/FeBr3",
             "CuCl/HCl"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Diazotization: aniline + NaNO2 + HCl, 0–5°C par."
         },
         {
           "id": "461899b9-8346-4fc0-83ab-b1f47798a44f",
@@ -245,7 +273,9 @@
             "A secondary amine with same carbon count",
             "An aldehyde",
             "A nitrile"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Hoffmann bromamide degradation amide ko ek carbon kam wali primary amine me badalta hai."
         }
       ],
       "comments_list": []
@@ -285,7 +315,9 @@
             "Always sort the input array",
             "Use dynamic programming table",
             "Stop after the first recursive call"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Backtracking me choice karke recursion ke baad us choice ko undo karna zaroori hota hai."
         },
         {
           "id": "8606fcad-c4cf-46c8-89d8-4f985737a21d",
@@ -295,7 +327,9 @@
             "2^n",
             "n^2",
             "2n"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "n elements ke 2^n subsets hote hain (har element include ya exclude)."
         },
         {
           "id": "5dfa8a27-e0cf-4b31-b6dc-4eea60462405",
@@ -305,7 +339,9 @@
             "To avoid recursion depth errors",
             "To ensure each element is used only once in one arrangement",
             "To sort elements automatically"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "Visited array se ek arrangement me har element sirf ek baar use hota hai."
         },
         {
           "id": "ec911694-2ae7-4751-a468-2a8c08725351",
@@ -315,7 +351,9 @@
             "Only adjacent cells",
             "Current row and column only",
             "Column, main diagonal, and anti-diagonal"
-          ]
+          ],
+          "correct_option": 3,
+          "explanation": "N-Queens me column, main diagonal aur anti-diagonal check karne padte hain."
         },
         {
           "id": "01d36d1f-b819-4bc4-9498-64cec38b9991",
@@ -325,7 +363,9 @@
             "When one row is completed",
             "When a digit from 1 to 9 is placed once",
             "When the first empty cell is found"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "Sudoku me base case tab hai jab saare empty cells validly fill ho jayein."
         }
       ],
       "comments_list": []
@@ -367,7 +407,9 @@
             "2NF",
             "3NF",
             "BCNF"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "3NF non-prime attributes ki transitive dependency hatata hai."
         },
         {
           "id": "3b04f4e8-7646-44f1-9d33-f685dd968a8a",
@@ -377,7 +419,9 @@
             "ORDER BY",
             "HAVING",
             "DISTINCT"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "HAVING aggregation ke baad groups ko filter karta hai; WHERE rows ko pehle filter karta hai."
         },
         {
           "id": "fe109420-736c-4063-b5c5-c3db67bfc673",
@@ -387,7 +431,9 @@
             "Consistency",
             "Isolation",
             "Indexing"
-          ]
+          ],
+          "correct_option": 3,
+          "explanation": "ACID = Atomicity, Consistency, Isolation, Durability. Indexing ACID property nahi hai."
         },
         {
           "id": "2543d3b4-a239-4f6e-bb8e-b93c7666cc5b",
@@ -397,7 +443,9 @@
             "Refer to the primary key of another table",
             "Store multiple values in one field",
             "Represent a derived attribute"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Foreign key doosre table ki primary key ko refer karti hai."
         },
         {
           "id": "dc2c1be6-8492-478e-9401-69333fdc1364",
@@ -407,7 +455,9 @@
             "B+ Tree index",
             "Bitmap only",
             "Stack index"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "B+ Tree ke leaf nodes linked hote hain, isliye range queries efficient hoti hain."
         }
       ],
       "comments_list": []
@@ -430,10 +480,10 @@
       "source": "admin",
       "status": "ready",
       "ai_generated": true,
-      "notes_md": "## Page Replacement Algorithms\n- In **virtual memory**, when a page fault occurs and all frames are full, the OS must choose a page to remove. This is called **page replacement**.\n- **FIFO (First In First Out)** removes the oldest loaded page. It is simple but may show **Belady\u2019s anomaly**, where more frames can cause more page faults.\n- **LRU (Least Recently Used)** removes the page not used for the longest time in the past. It gives good performance and is a stack algorithm, so it does not show Belady\u2019s anomaly.\n- **Optimal page replacement** removes the page that will not be used for the longest time in future. It gives minimum page faults but is only theoretical because future reference is unknown.\n- **Second Chance/Clock** improves FIFO using a reference bit. Pages with reference bit 1 get another chance.\n- **Page fault rate** affects CPU utilization. Very high page faults lead to **thrashing**, where the system spends more time swapping than executing.\n\n## File System\n- A **file system** manages how data is stored, named, organized, and retrieved on secondary storage.\n- A file has attributes such as **name, type, size, location, protection, and timestamps**.\n- Common file operations are **create, open, read, write, seek, close, and delete**.\n- A **directory** stores file information and supports hierarchical organization.\n- File allocation methods:\n  - **Contiguous allocation**: file blocks are stored together. Fast access but suffers from external fragmentation.\n  - **Linked allocation**: each block points to the next. No external fragmentation, but random access is slow.\n  - **Indexed allocation**: an index block stores addresses of all file blocks. Good for direct access.\n- Free space can be managed using **bit map**, **linked list**, or **grouping**.\n- Protection methods include **access control** and permission bits for read, write, and execute.\n\n## Disk Scheduling\n- Disk scheduling decides the order of servicing disk I/O requests to reduce **seek time** and improve throughput.\n- **FCFS** serves requests in arrival order. It is fair but may have high average seek time.\n- **SSTF (Shortest Seek Time First)** chooses the request nearest to current head position. It reduces seek time but may starve far requests.\n- **SCAN** moves the head in one direction servicing requests, then reverses direction. It is also called the elevator algorithm.\n- **C-SCAN** services requests in one direction only; after reaching the end, the head returns quickly to the beginning. It gives more uniform waiting time.\n- **LOOK** and **C-LOOK** are improved versions of SCAN and C-SCAN; they move only up to the last pending request, not necessarily to the physical end.\n- Important performance terms are **seek time**, **rotational latency**, and **transfer time**.\n\n## Exam Tips\n- Remember: **FIFO can have Belady\u2019s anomaly**, but **LRU and Optimal cannot**.\n- In theory questions, compare algorithms on **fairness, starvation, and average service time**.\n- In numericals, carefully track page references or disk head movement step by step.\n- For file allocation, connect method with access type: **contiguous/indexed for direct access**, **linked for sequential access**.",
+      "notes_md": "## Page Replacement Algorithms\n- In **virtual memory**, when a page fault occurs and all frames are full, the OS must choose a page to remove. This is called **page replacement**.\n- **FIFO (First In First Out)** removes the oldest loaded page. It is simple but may show **Belady’s anomaly**, where more frames can cause more page faults.\n- **LRU (Least Recently Used)** removes the page not used for the longest time in the past. It gives good performance and is a stack algorithm, so it does not show Belady’s anomaly.\n- **Optimal page replacement** removes the page that will not be used for the longest time in future. It gives minimum page faults but is only theoretical because future reference is unknown.\n- **Second Chance/Clock** improves FIFO using a reference bit. Pages with reference bit 1 get another chance.\n- **Page fault rate** affects CPU utilization. Very high page faults lead to **thrashing**, where the system spends more time swapping than executing.\n\n## File System\n- A **file system** manages how data is stored, named, organized, and retrieved on secondary storage.\n- A file has attributes such as **name, type, size, location, protection, and timestamps**.\n- Common file operations are **create, open, read, write, seek, close, and delete**.\n- A **directory** stores file information and supports hierarchical organization.\n- File allocation methods:\n  - **Contiguous allocation**: file blocks are stored together. Fast access but suffers from external fragmentation.\n  - **Linked allocation**: each block points to the next. No external fragmentation, but random access is slow.\n  - **Indexed allocation**: an index block stores addresses of all file blocks. Good for direct access.\n- Free space can be managed using **bit map**, **linked list**, or **grouping**.\n- Protection methods include **access control** and permission bits for read, write, and execute.\n\n## Disk Scheduling\n- Disk scheduling decides the order of servicing disk I/O requests to reduce **seek time** and improve throughput.\n- **FCFS** serves requests in arrival order. It is fair but may have high average seek time.\n- **SSTF (Shortest Seek Time First)** chooses the request nearest to current head position. It reduces seek time but may starve far requests.\n- **SCAN** moves the head in one direction servicing requests, then reverses direction. It is also called the elevator algorithm.\n- **C-SCAN** services requests in one direction only; after reaching the end, the head returns quickly to the beginning. It gives more uniform waiting time.\n- **LOOK** and **C-LOOK** are improved versions of SCAN and C-SCAN; they move only up to the last pending request, not necessarily to the physical end.\n- Important performance terms are **seek time**, **rotational latency**, and **transfer time**.\n\n## Exam Tips\n- Remember: **FIFO can have Belady’s anomaly**, but **LRU and Optimal cannot**.\n- In theory questions, compare algorithms on **fairness, starvation, and average service time**.\n- In numericals, carefully track page references or disk head movement step by step.\n- For file allocation, connect method with access type: **contiguous/indexed for direct access**, **linked for sequential access**.",
       "summary": [
         "Page replacement selects a victim page during a page fault when memory frames are full.",
-        "FIFO is simple but can suffer from Belady\u2019s anomaly, while LRU and Optimal are stack algorithms.",
+        "FIFO is simple but can suffer from Belady’s anomaly, while LRU and Optimal are stack algorithms.",
         "A file system organizes files, directories, allocation methods, and protection on secondary storage.",
         "Contiguous, linked, and indexed allocation differ in speed, fragmentation, and access support.",
         "Disk scheduling algorithms like SSTF, SCAN, and C-SCAN aim to reduce seek time and improve performance."
@@ -442,13 +492,15 @@
       "questions": [
         {
           "id": "878619dd-a2df-4c2a-9fdb-9ad439716fdf",
-          "question": "Which page replacement algorithm can suffer from Belady\u2019s anomaly?",
+          "question": "Which page replacement algorithm can suffer from Belady’s anomaly?",
           "options": [
             "FIFO",
             "LRU",
             "Optimal",
             "LFU"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "FIFO me Belady's anomaly possible hai: frames badhane par bhi page faults badh sakte hain."
         },
         {
           "id": "f06637b8-7e19-48a3-a1e9-d6d392ca849c",
@@ -458,7 +510,9 @@
             "Indexed allocation",
             "Sequential allocation only",
             "Chained free list"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Indexed allocation me index block se kisi bhi block par direct access milta hai."
         },
         {
           "id": "13dea03b-7aed-4f06-9219-6bcaf00b4077",
@@ -468,7 +522,9 @@
             "LOOK",
             "C-SCAN",
             "SSTF"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "C-SCAN ek direction me serve karke bina serve kiye wapas start par jaata hai."
         },
         {
           "id": "eb4f4abc-0b01-4e8f-9d83-a4624b200996",
@@ -478,7 +534,9 @@
             "It may cause starvation of far requests",
             "It is identical to FCFS",
             "It always performs worse than SCAN"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "SSTF me door wali requests ki starvation ho sakti hai."
         },
         {
           "id": "90d1304f-d6f0-480d-9a28-01608715c27d",
@@ -488,7 +546,9 @@
             "LRU",
             "Optimal",
             "Second Chance"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "Optimal algorithm minimum page faults deta hai (future knowledge ke saath)."
         }
       ],
       "comments_list": [
@@ -506,7 +566,7 @@
       "title": "DSA Free Course | Dynamic Programming In One Shot | DSA | DP In One Shot",
       "subject": "DSA",
       "topic": "Dynamic Programming",
-      "description": "Memoization, tabulation, knapsack, LCS, LIS \u2014 the classic interview patterns.",
+      "description": "Memoization, tabulation, knapsack, LCS, LIS — the classic interview patterns.",
       "youtube_id": "Z8USYkiRvZw",
       "channel": "GeeksforGeeks",
       "duration_label": "One shot",
@@ -537,7 +597,9 @@
             "Only sorting of input",
             "Only greedy choice property",
             "Only graph representation"
-          ]
+          ],
+          "correct_option": 0,
+          "explanation": "DP ke liye optimal substructure aur overlapping subproblems dono chahiye."
         },
         {
           "id": "a0d2b6e0-7b1f-4f89-ba06-7166efd92d73",
@@ -547,7 +609,9 @@
             "Memoization uses recursion with caching, tabulation fills a table iteratively",
             "Both are exactly the same in implementation",
             "Tabulation always uses more memory than memoization"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Memoization = recursion + caching (top-down); tabulation = table iteratively fill karna (bottom-up)."
         },
         {
           "id": "9e17534e-7d58-4850-a57b-bbd1754d7295",
@@ -557,7 +621,9 @@
             "To avoid overwriting states needed for the same item",
             "To reduce item weights",
             "To sort items automatically"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "Capacity high se low iterate karne par same item ke purane states overwrite nahi hote."
         },
         {
           "id": "1956c2e0-1c61-4a91-b23e-8383bc72b215",
@@ -567,7 +633,9 @@
             "O(n log m)",
             "O(n*m)",
             "O(2^n)"
-          ]
+          ],
+          "correct_option": 2,
+          "explanation": "LCS ka standard DP O(n*m) time leta hai."
         },
         {
           "id": "5cb57194-315c-4f69-ad89-6034534fde7a",
@@ -577,7 +645,9 @@
             "Length of LIS ending at index i",
             "Number of increasing subsequences till i",
             "Minimum value seen till index i"
-          ]
+          ],
+          "correct_option": 1,
+          "explanation": "LIS DP me dp[i] = index i par end hone wali LIS ki length."
         }
       ],
       "comments_list": []

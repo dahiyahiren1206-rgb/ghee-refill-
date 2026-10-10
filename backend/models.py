@@ -77,6 +77,20 @@ class Paper(BaseModel):
     created_at: str
     file_data: Optional[str] = None
 
+class PaperOut(BaseModel):
+    id: str
+    title: str
+    subject: str
+    exam: str
+    year: str
+    uploader: str
+    file_name: str
+    size: int
+    status: str
+    reason: str
+    relevance: int
+    created_at: str
+
 class CommunityNote(BaseModel):
     id: str
     title: str
@@ -110,3 +124,11 @@ class ChatHistoryItem(BaseModel):
     id: str
     role: str
     content: str
+
+
+class SuggestionCreate(BaseModel):
+    youtube_url: str
+    title: str
+    topic: str
+    why: str = ""
+    suggested_by: str = "Guest"
