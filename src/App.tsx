@@ -8,11 +8,15 @@ import Watch from "@/pages/Watch";
 import Papers from "@/pages/Papers";
 import Contribute from "@/pages/Contribute";
 import Chat from "@/pages/Chat";
+import { ShapePhysics } from "@/components/shape-physics";
 
 // One <Route> per page in src/pages; BrowserRouter already wraps this in main.tsx.
 export default function App() {
   return (
-    <div className="flex min-h-svh flex-col bg-white text-zinc-900">
+    <div className="flex min-h-svh flex-col text-zinc-900">
+       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+     <ShapePhysics height="100%" background="#ffffff" interactive={false} />
+   </div>
       <Header />
       <main className="flex-1">
         <Routes>
